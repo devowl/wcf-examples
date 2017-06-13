@@ -28,7 +28,7 @@ namespace WcfApplication
                 new SessionExample(), 
             };
 
-            return QuestionManager.Choose(examples, e => e.Name, "Список доступных примеров:");
+            return QuestionManager.Choose(examples, e => e.Name, "List of samples:");
 
         }
     }
