@@ -34,12 +34,12 @@ namespace WcfApplication.Examples.Sessions
         /// <inheritdoc/>
         public void Hello()
         {
-            SysConsole.WriteLine("SessionId [{0}] Call [{1}]", OperationContext.Current.SessionId, ++_call);
+            SysConsole.WriteLine("SessionId [{0}] Call [{1}]", OperationContext.Current?.SessionId, ++_call);
         }
 
         public void Dispose()
         {
-            SysConsole.WriteLine("Goodbye [{0}]", OperationContext.Current.SessionId);
+            SysConsole.WriteLine("Goodbye [{0}]", OperationContext.Current?.SessionId);
         }
     }
 
@@ -96,7 +96,7 @@ namespace WcfApplication.Examples.Sessions
                     for (int i = 0; i < clientsCount; i ++)
                     {
                         var client = CreateClient(settings, sessionMode);
-                        PeriodicExcutor(
+                        PeriodicExecutor(
                             client,
                             (c, j) =>
                             {
@@ -104,12 +104,14 @@ namespace WcfApplication.Examples.Sessions
                                 if (j == 10)
                                 {
                                     CloseClient(c);
+                                    SysConsole.WriteQuestion("Execution completed!");
                                     return false;
                                 }
 
                                 return true;
                             });
                     }
+
                     Console.ReadKey();
                     break;
                 case AppSide.Server:
@@ -125,6 +127,11 @@ namespace WcfApplication.Examples.Sessions
 
                     var service = CreateService(settings, contextMode);
                     service.Open();
+                    SysConsole.WriteQuestion("Service is working.");
+                    SysConsole.WriteLine();
+                    SysConsole.WriteQuestion("Awaiting client connections...");
+                    SysConsole.WriteLine();
+                    SysConsole.WriteLine();
                     Console.ReadKey();
                     break;
                 default:

@@ -155,7 +155,7 @@ namespace WcfApplication.Common
         /// <param name="service">Экземпляр для работы с сервисом.</param>
         /// <param name="execute">При возникновении события о вызове.</param>
         /// <param name="period">Период вызова.</param>
-        protected void PeriodicExcutor<TContract>(TContract service, Func<TContract, int, bool> execute, int period = 3000)
+        protected void PeriodicExecutor<TContract>(TContract service, Func<TContract, int, bool> execute, int period = 3000)
         {
             Task.Factory.StartNew(
                 () =>
