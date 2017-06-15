@@ -1,4 +1,5 @@
 ﻿using WcfApplication.Common;
+using WcfApplication.Examples.Operations;
 using WcfApplication.Examples.Sessions;
 
 namespace WcfApplication
@@ -26,6 +27,7 @@ namespace WcfApplication
             var examples = new ExampleBase[]
             {
                 new SessionExample(), 
+                new OperationsCallSequenceExample(), 
             };
 
             return QuestionManager.Choose(examples, e => e.Name, "List of samples:");
