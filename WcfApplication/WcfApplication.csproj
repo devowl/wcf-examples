@@ -51,6 +51,7 @@
     <Compile Include="Common\QuestionManager.cs" />
     <Compile Include="Common\SettingsWizzard.cs" />
     <Compile Include="Common\UserSettings.cs" />
+    <Compile Include="Examples\MaxConnections\ConnectionsExample.cs" />
     <Compile Include="Examples\Operations\OperationsCallSequenceExample.cs" />
     <Compile Include="Examples\Sessions\SessionExample.cs" />
     <Compile Include="Program.cs" />

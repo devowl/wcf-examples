@@ -1,4 +1,5 @@
 ﻿using WcfApplication.Common;
+using WcfApplication.Examples.MaxConnections;
 using WcfApplication.Examples.Operations;
 using WcfApplication.Examples.Sessions;
 
@@ -27,7 +28,8 @@ namespace WcfApplication
             var examples = new ExampleBase[]
             {
                 new SessionExample(), 
-                new OperationsCallSequenceExample(), 
+                new OperationsCallSequenceExample(),
+                new ConnectionsExample(), 
             };
 
             return QuestionManager.Choose(examples, e => e.Name, "List of samples:");
