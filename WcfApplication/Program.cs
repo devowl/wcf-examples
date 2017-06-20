@@ -30,6 +30,7 @@ namespace WcfApplication
                 new SessionExample(), 
                 new OperationsCallSequenceExample(),
                 new ConnectionsExample(), 
+                new ReliableSessionExceptionExample(), 
             };
 
             return QuestionManager.Choose(examples, e => e.Name, "List of samples:");

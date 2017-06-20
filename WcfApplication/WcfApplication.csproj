@@ -53,6 +53,7 @@
     <Compile Include="Common\UserSettings.cs" />
     <Compile Include="Examples\MaxConnections\ConnectionsExample.cs" />
     <Compile Include="Examples\Operations\OperationsCallSequenceExample.cs" />
+    <Compile Include="Examples\Sessions\ReliableSessionExceptionExample.cs" />
     <Compile Include="Examples\Sessions\SessionExample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
