@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
-using System.Text;
 using System.Threading;
 
 using WcfApplication.Common;
 
-namespace WcfApplication.Examples.Sessions
+namespace WcfApplication.Examples.Exceptions
 {
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class Service : IService
@@ -158,7 +156,7 @@ namespace WcfApplication.Examples.Sessions
                     break;
                 case AppSide.Server:
                     CreateServiceHost<IService, Service>(settings).Open();
-                    Console.ReadKey();
+                    QuestionManager.AwaitingClientConnections();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

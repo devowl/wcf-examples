@@ -85,5 +85,15 @@ namespace WcfApplication.Common
             
             return arrayResult[selectedIndex];
         }
+
+        /// <summary>
+        /// Вывод текста ожидания клиента.
+        /// </summary>
+        public static void AwaitingClientConnections()
+        {
+            SysConsole.WriteLine();
+            SysConsole.WriteQuestion("Awaiting client connections...");
+            Console.ReadKey();
+        }
     }
 }

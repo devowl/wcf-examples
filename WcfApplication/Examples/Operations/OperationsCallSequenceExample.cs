@@ -118,11 +118,7 @@ namespace WcfApplication.Examples.Operations
                     var service = CreateServiceHost<IMyService, MyService>(settings);
                     service.Open();
                     SysConsole.WriteQuestion("Service is working.");
-                    SysConsole.WriteLine();
-                    SysConsole.WriteQuestion("Awaiting client connections...");
-                    SysConsole.WriteLine();
-                    SysConsole.WriteLine();
-                    Console.ReadKey();
+                    QuestionManager.AwaitingClientConnections();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

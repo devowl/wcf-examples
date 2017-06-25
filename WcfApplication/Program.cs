@@ -1,4 +1,5 @@
 ﻿using WcfApplication.Common;
+using WcfApplication.Examples.Exceptions;
 using WcfApplication.Examples.MaxConnections;
 using WcfApplication.Examples.Operations;
 using WcfApplication.Examples.Sessions;
@@ -30,7 +31,9 @@ namespace WcfApplication
                 new SessionExample(), 
                 new OperationsCallSequenceExample(),
                 new ConnectionsExample(), 
-                new ReliableSessionExceptionExample(), 
+                new ReliableSessionExceptionExample(),
+                new FaultExceptionExample(),
+                new ErrorHandlerExample()
             };
 
             return QuestionManager.Choose(examples, e => e.Name, "List of samples:");

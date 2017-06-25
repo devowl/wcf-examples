@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading;
@@ -41,6 +42,25 @@ namespace WcfApplication.Common
             try
             {
                 result = action();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                PrintError(exception);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Безопасный вызов действия.
+        /// </summary>
+        /// <param name="action">Действие с вызовом.</param>
+        /// <returns>Удачный или нет вызов.</returns>
+        protected bool TrySafeCall(Action action)
+        {
+            try
+            {
+                action();
                 return true;
             }
             catch (Exception exception)
@@ -180,9 +200,14 @@ namespace WcfApplication.Common
                 });
         }
 
-        private static void PrintError(object errorObject)
+        private static void PrintError(Exception errorObject)
         {
-            SysConsole.WriteErrorLine(errorObject.ToString());
+            var errorType = errorObject.GetType();
+            var type = errorType.IsGenericType
+                ? $"{errorType.Name}<{string.Join(",", errorType.GetGenericArguments().Select(arg => arg.Name))}>"
+                : errorType.Name;
+
+            SysConsole.WriteErrorLine($"[{type}] {errorObject.Message}");
         }
     }
 }

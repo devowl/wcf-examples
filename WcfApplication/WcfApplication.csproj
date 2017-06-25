@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,9 +52,11 @@
     <Compile Include="Common\QuestionManager.cs" />
     <Compile Include="Common\SettingsWizzard.cs" />
     <Compile Include="Common\UserSettings.cs" />
+    <Compile Include="Examples\Exceptions\ErrorHandlerExample.cs" />
+    <Compile Include="Examples\Exceptions\FaultExceptionExample.cs" />
     <Compile Include="Examples\MaxConnections\ConnectionsExample.cs" />
     <Compile Include="Examples\Operations\OperationsCallSequenceExample.cs" />
-    <Compile Include="Examples\Sessions\ReliableSessionExceptionExample.cs" />
+    <Compile Include="Examples\Exceptions\ReliableSessionExceptionExample.cs" />
     <Compile Include="Examples\Sessions\SessionExample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -97,9 +97,7 @@ namespace WcfApplication.Examples.MaxConnections
                 case AppSide.Server:
                     CreateServiceHost<IMyService, MyService>(settings).Open();
                     SysConsole.WriteQuestionLine("Unlimited method calls with OneWay.");
-                    SysConsole.WriteLine();
-                    SysConsole.WriteLine();
-                    Console.ReadKey();
+                    QuestionManager.AwaitingClientConnections();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
