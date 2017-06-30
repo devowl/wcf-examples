@@ -1,6 +1,7 @@
 ﻿using WcfApplication.Common;
 using WcfApplication.Examples.Exceptions;
 using WcfApplication.Examples.MaxConnections;
+using WcfApplication.Examples.MultiThreading;
 using WcfApplication.Examples.Operations;
 using WcfApplication.Examples.Sessions;
 
@@ -33,7 +34,9 @@ namespace WcfApplication
                 new ConnectionsExample(), 
                 new ReliableSessionExceptionExample(),
                 new FaultExceptionExample(),
-                new ErrorHandlerExample()
+                new ErrorHandlerExample(),
+                new ConcurrencyModeExample(), 
+                new ConcurrencyModeNotWorkingExample()
             };
 
             return QuestionManager.Choose(examples, e => e.Name, "List of samples:");

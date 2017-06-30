@@ -134,6 +134,24 @@ namespace WcfApplication.Common
         }
 
         /// <summary>
+        /// Создать клиента для службы.
+        /// </summary>
+        /// <typeparam name="TContract">Тип контракта.</typeparam>
+        /// <typeparam name="TCallback">Тип экземпляра обратного вызова.</typeparam>
+        /// <param name="settings">Пользовательские настройки.</param>
+        /// <param name="callback">Ссылка на экземпляр обратного вызова.</param>
+        /// <returns>Экземпляр клиента.</returns>
+        protected TContract CreateDuplexClient<TContract, TCallback>(UserSettings settings, out TCallback callback) 
+            where TCallback : class, new()
+        {
+            callback = new TCallback();
+            return DuplexChannelFactory<TContract>.CreateChannel(new InstanceContext(callback),
+                settings.Binding,
+                new EndpointAddress(settings.ServiceUrl));
+
+        }
+
+        /// <summary>
         /// Закрыть соединение с клиентом.
         /// </summary>
         /// <param name="client">Ссылка на клиента.</param>

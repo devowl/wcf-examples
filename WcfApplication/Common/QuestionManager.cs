@@ -73,16 +73,17 @@ namespace WcfApplication.Common
                 }
                 else
                 {
-                    
                     var input = Console.ReadLine();
                     int.TryParse(input, out selectedIndex);
                     selectedIndex -= 1;
                 }
-
-                Console.WriteLine();
             }
             while (selectedIndex < 0 || selectedIndex >= arrayResult.Length);
             
+            SysConsole.Write("Selected: ");
+            SysConsole.WriteInfoLine(getName(arrayResult[selectedIndex]));
+            Console.WriteLine();
+
             return arrayResult[selectedIndex];
         }
 
@@ -92,7 +93,7 @@ namespace WcfApplication.Common
         public static void AwaitingClientConnections()
         {
             SysConsole.WriteLine();
-            SysConsole.WriteQuestion("Awaiting client connections...");
+            SysConsole.WriteQuestionLine("Awaiting client connections...");
             Console.ReadKey();
         }
     }

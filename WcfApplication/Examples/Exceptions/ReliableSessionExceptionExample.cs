@@ -79,9 +79,7 @@ namespace WcfApplication.Examples.Exceptions
                         "Choose reliableSession mode");
 
             SysConsole.WriteLine();
-            SysConsole.WriteQuestionLine($"ReliableSession mode [{reliableSessionFlag.ToString().ToUpper()}] in use now!");
-            SysConsole.WriteLine();
-            SysConsole.WriteLine();
+            SysConsole.WriteQuestionLine($"ReliableSession mode [{reliableSessionFlag.ToString().ToUpper()}] in use now!", 3);
 
             if (bindingType == typeof(NetTcpBinding))
             {
@@ -108,8 +106,7 @@ namespace WcfApplication.Examples.Exceptions
             {
                 case AppSide.Client:
                     var client = CreateClient<IService>(settings);
-                    SysConsole.WriteQuestion("Single proxy channel client instance!");
-                    SysConsole.WriteLine();
+                    SysConsole.WriteQuestion("Single proxy channel client instance!", 1);
 
                     int maxCatchs = 3;
                     while (maxCatchs > 0)

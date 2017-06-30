@@ -60,9 +60,7 @@ namespace WcfApplication.Examples.Operations
             {
                 case AppSide.Client:
                     SysConsole.WriteLine();
-                    SysConsole.WriteLine();
-                    SysConsole.WriteQuestionLine("A correct flow when we logged in -> said hello world -> logged out.");
-                    SysConsole.WriteLine();
+                    SysConsole.WriteQuestionLine("A correct flow when we logged in -> said hello world -> logged out.", 2);
                     
                     while (true)
                     {

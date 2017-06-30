@@ -34,12 +34,12 @@ namespace WcfApplication.Examples.Sessions
         /// <inheritdoc/>
         public void Hello()
         {
-            SysConsole.WriteLine("SessionId [{0}] Call [{1}]", OperationContext.Current?.SessionId, ++_call);
+            SysConsole.WriteLine($"SessionId [{OperationContext.Current?.SessionId}] Call [{++_call}]");
         }
 
         public void Dispose()
         {
-            SysConsole.WriteLine("Goodbye [{0}]", OperationContext.Current?.SessionId);
+            SysConsole.WriteLine($"Goodbye [{OperationContext.Current?.SessionId}]");
         }
     }
 
