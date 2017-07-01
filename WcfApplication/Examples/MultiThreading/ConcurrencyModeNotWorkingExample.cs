@@ -62,7 +62,7 @@ namespace WcfApplication.Examples.MultiThreading
                     var host = CreateServiceHost<IContract, ConcurrencyMultiple>(settings);
                     host.Open();
 
-                    SysConsole.WriteInfoLine($"Each one contract method execute at least {ThreadSleepTimeSeconds} SECONDS");
+                    SysConsole.WriteInfoLine($"Each one contract method process time at least {ThreadSleepTimeSeconds} SECONDS");
                     QuestionManager.AwaitingClientConnections();
                     break;
                 default:
