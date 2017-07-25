@@ -798,7 +798,7 @@
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=9078DC111B75774391D38380EAD8553D/Shortcut/@EntryValue">init</s:String>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=9078DC111B75774391D38380EAD8553D/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=9078DC111B75774391D38380EAD8553D/Text/@EntryValue">        /// &lt;summary&gt;&#xD;
-        /// Создание экземпляра класса &lt;see cref="$type$"/&gt;.&#xD;
+        /// &lt;see cref="$type$"/&gt; Constructor.&#xD;
         /// &lt;/summary&gt;</s:String>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=922F554D195FB444923A1CA3F50F61DB/@KeyIndexDefined">True</s:Boolean>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=922F554D195FB444923A1CA3F50F61DB/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>

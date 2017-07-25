@@ -52,8 +52,13 @@
     <Compile Include="Common\QuestionManager.cs" />
     <Compile Include="Common\SettingsWizzard.cs" />
     <Compile Include="Common\UserSettings.cs" />
-    <Compile Include="Examples\Duplex\BasicHttpCallback.cs" />
+    <Compile Include="Examples\Duplex\BasicHttpCallbackExample.cs" />
+    <Compile Include="Examples\Duplex\Exceptions\ClientNotFoundedException.cs" />
+    <Compile Include="Examples\Duplex\Messages\BroadcastMessage.cs" />
+    <Compile Include="Examples\Duplex\Messages\MessageBase.cs" />
+    <Compile Include="Examples\Duplex\Messages\PersonalMessage.cs" />
     <Compile Include="Examples\Duplex\QueueManager.cs" />
+    <Compile Include="Examples\Duplex\TestMessageEmulator.cs" />
     <Compile Include="Examples\Exceptions\ErrorHandlerExample.cs" />
     <Compile Include="Examples\Exceptions\FaultExceptionExample.cs" />
     <Compile Include="Examples\MaxConnections\ConnectionsExample.cs" />

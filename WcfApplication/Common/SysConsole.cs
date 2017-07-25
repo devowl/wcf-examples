@@ -100,6 +100,7 @@ namespace WcfApplication.Common
         public static void PressAnyKey()
         {
             Write(ConsoleColor.Yellow, Console.Write, "Press any key...");
+            Console.WriteLine();
             Console.ReadKey();
         }
     }

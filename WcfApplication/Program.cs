@@ -1,4 +1,5 @@
 ﻿using WcfApplication.Common;
+using WcfApplication.Examples.Duplex;
 using WcfApplication.Examples.Exceptions;
 using WcfApplication.Examples.MaxConnections;
 using WcfApplication.Examples.MultiThreading;
@@ -36,7 +37,8 @@ namespace WcfApplication
                 new FaultExceptionExample(),
                 new ErrorHandlerExample(),
                 new ConcurrencyModeExample(), 
-                new ConcurrencyModeNotWorkingExample()
+                new ConcurrencyModeNotWorkingExample(),
+                new BasicHttpCallbackExample()
             };
 
             return QuestionManager.Choose(examples, e => e.Name, "List of samples:");

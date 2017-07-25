@@ -25,6 +25,7 @@ namespace WcfApplication.Examples.MaxConnections
             Thread.Sleep(5000);
         }
     }
+
     /// <summary>
     /// Демонстрация указания значения maxConnections.
     /// </summary>
