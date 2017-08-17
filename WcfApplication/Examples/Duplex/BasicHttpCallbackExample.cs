@@ -11,20 +11,32 @@ using WcfApplication.Examples.Duplex.Messages;
 
 namespace WcfApplication.Examples.Duplex
 {
+    /// <summary>
+    /// Service contract.
+    /// </summary>
     [ServiceContract]
     public interface IMyService
     {
+        /// <summary>
+        /// Client method.
+        /// </summary>
         [OperationContract]
         string Login(string login, string password);
 
+        /// <summary>
+        /// Get callback message call.
+        /// </summary>
         [OperationContract]
         IEnumerable<MessageBase> GetMessages(string clientId, TimeSpan timeout);
     }
 
+    /// <summary>
+    /// Service instance.
+    /// </summary>
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     public class MyService : IMyService
     {
-        private static Random _random = new Random();
+        private static readonly Random Random = new Random();
 
         /// <summary>
         /// Callback manager instance.
@@ -42,7 +54,7 @@ namespace WcfApplication.Examples.Duplex
         public string Login(string login, string password)
         {
             // Validating login & password
-            var clientId = _random.Next(1000000, 9999999).ToString();
+            var clientId = Random.Next(1000000, 9999999).ToString();
             Manager.AddClient(clientId);
             return clientId;
         }
@@ -55,6 +67,9 @@ namespace WcfApplication.Examples.Duplex
         }
     }
 
+    /// <summary>
+    /// BasicHttpBinding Callback example.
+    /// </summary>
     public class BasicHttpCallbackExample : ExampleBase
     {
         /// <inheritdoc/>
@@ -86,10 +101,15 @@ namespace WcfApplication.Examples.Duplex
                         },
                         (o) => o.ToString(),
                         "Choose clients count");
+
+                    // Creates callback processors
                     for (int i = 0; i < clients; i++)
                     {
+                        // proxy client
                         var client = CreateClient<IMyService>(settings);
-                        Task.Factory.StartNew(CallbackProcessor, client);
+
+                        // client thread
+                        Task.Factory.StartNew(InitClient, client);
                     }
 
                     SysConsole.PressAnyKey();
@@ -102,19 +122,21 @@ namespace WcfApplication.Examples.Duplex
             }
         }
 
-        private void CallbackProcessor(object clientObj)
+        private void InitClient(object clientObj)
         {
+            // Each one client processing service messages on call GetMessages()
             var client = clientObj as IMyService;
 
+            // 1. Login method call.
             var clientId = client.Login(Guid.NewGuid().ToString(), Guid.NewGuid().ToString());
             try
             {
                 do
                 {
-                    // Infinity GetMessage requests
+                    // 2. Infinity GetMessage requests
                     var callbackMessages = client.GetMessages(clientId, TimeSpan.FromSeconds(10));
 
-                    // Processing messages
+                    // 3. Processing messages
                     foreach (var callbackMessage in callbackMessages)
                     {
                         var broadcast = callbackMessage as BroadcastMessage;
@@ -140,7 +162,7 @@ namespace WcfApplication.Examples.Duplex
                 SysConsole.WriteErrorLine($"Client disconnected {ex.ClientId}. Re-login required...");
             }
         }
-
+        
         private void ProcessPersonal(string clientId, PersonalMessage personal)
         {
             SysConsole.WriteInfoLine($"CID [{clientId}] Data [{personal.Data}]");
